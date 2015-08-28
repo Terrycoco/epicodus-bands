@@ -1,0 +1,12 @@
+<h2>Bands I'm Following</h2>
+
+<ul>
+  <% @bands.each do |b| %>
+  <li><a href="/bands/<%= b.id %>/edit"><%= b.band_name %></a></li>
+    <% end %>
+</ul>
+<form class="" action="/bands/new" method="post">
+  <label for="band_name">Band Name:</label>
+  <input type="text" name="band_name">
+  <button type="submit" name="new">Add Band</button>
+</form>

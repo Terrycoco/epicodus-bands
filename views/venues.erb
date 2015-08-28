@@ -1,0 +1,12 @@
+<h2>Venues I'm Following</h2>
+
+<ul>
+  <% @venues.each do |v| %>
+  <li><a href="/venues/<%= v.id %>/edit"><%= v.venue_name %></a></li>
+    <% end %>
+</ul>
+<form class="" action="/venues/new" method="post">
+  <label for="venue_name">Venue Name:</label>
+  <input type="text" name="venue_name">
+  <button type="submit" name="new">Add Venue</button>
+</form>

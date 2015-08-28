@@ -1,0 +1,31 @@
+<h3>Venue Details</h3>
+<form class="" action="/venues<% @venue.id %>/update" method="post">
+<label for="venue_name">Venue Name</label>
+<input type="text" name="venue_name" value="<%= @venue.venue_name %>">
+<button type="button" name="update">Save</button>
+</form>
+
+<h3>Upcoming Bands</h3>
+<table class="table table-bordered">
+<tr>
+  <th>Band</th>
+  <th>Date</th>
+</tr>
+<% @venue.gigs.each do |g| %>
+<tr>
+  <td><%= g.band.band_name %></td>
+  <td><date><%= g.gig_date %></date></td>
+</tr>
+<% end %>
+</table>
+
+<h3>Add a Gig</h3>
+<form class="" action="/venues/<%= @venue.id %>/gig/add" method="post">
+  <select name="band_id">
+    <% @bands.each do |b| %>
+    <option value="<%= b.id %>"><%= b.band_name %></option>
+    <% end %>
+  </select>
+<input type="datetime-local" name="gig_date" value="">
+<button type="submit" name="name" value="">Add Gig</button>
+</form>
