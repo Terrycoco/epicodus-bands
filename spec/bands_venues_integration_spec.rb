@@ -7,6 +7,7 @@ describe('bands path') do
       band = Band.create({:band_name => 'Smashing Pumpkins'})
       venue = Venue.create({:venue_name => 'Radio City Music Hall'})
       band.venues << venue
+      binding.pry
       visit('/')
       click_link('Smashing Pumpkins')
       expect(page).to have_content('Radio City Music Hall')

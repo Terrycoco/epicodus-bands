@@ -6,6 +6,6 @@ class Band < ActiveRecord::Base
 
   private
   define_method (:capitalize) do
-    self.band_name = self.band_name.capitalize
+    self.band_name[0] = self.band_name[0].capitalize
   end
 end
