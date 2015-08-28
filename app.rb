@@ -61,6 +61,15 @@ get('/venues/:vid/edit') do
   erb(:venue_edit)
 end
 
+post('/venues/:vid/update') do
+  vid = params.fetch('vid')
+  venue = Venue.find(vid)
+  new_name = params.fetch('venue_name')
+  venue.update({:venue_name => new_name})
+  redirect("/venues/#{vid}/edit")
+end
+
+
 post('/venues/:vid/gig/add') do
   vid = params.fetch('vid')
   venue = Venue.find(vid)

@@ -1,8 +1,8 @@
 <h3>Venue Details</h3>
-<form class="" action="/venues<% @venue.id %>/update" method="post">
+<form class="" action="/venues/<%= @venue.id %>/update" method="post">
 <label for="venue_name">Venue Name</label>
 <input type="text" name="venue_name" value="<%= @venue.venue_name %>">
-<button type="button" name="update">Save</button>
+<button type="submit" name="update">Save</button>
 </form>
 
 <h3>Upcoming Bands</h3>
