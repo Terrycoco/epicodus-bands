@@ -6,7 +6,7 @@
 </form>
 
 <h3>Upcoming Venues</h3>
-<table class="table table-bordered">
+<table class="table table-striped table-bordered table-condensed">
 <tr>
   <th>Venue</th>
   <th>Date</th>
@@ -15,6 +15,7 @@
 <tr>
   <td><%= g.venue.venue_name %></td>
   <td><date><%= g.gig_date %></date></td>
+    <td><a href="/bands/<%= @band.id %>/gig/<%= g.id %>/delete">Delete</a></td>
 </tr>
 <% end %>
 </table>

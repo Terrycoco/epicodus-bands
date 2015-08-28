@@ -6,7 +6,7 @@
 </form>
 
 <h3>Upcoming Bands</h3>
-<table class="table table-bordered">
+<table class="table table-striped table-bordered table-condensed">
 <tr>
   <th>Band</th>
   <th>Date</th>
@@ -14,7 +14,8 @@
 <% @venue.gigs.each do |g| %>
 <tr>
   <td><%= g.band.band_name %></td>
-  <td><date><%= g.gig_date %></date></td>
+  <td><%= g.gig_date %></td>
+  <td><a href="/venues/<%= @venue.id %>/gig/<%= g.id %>/delete">Delete</a></td>
 </tr>
 <% end %>
 </table>

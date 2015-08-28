@@ -29,6 +29,13 @@ post('/bands/:bid/gig/add') do
   redirect("/bands/#{bid}/edit")
 end
 
+get('/bands/:bid/gig/:gid/delete') do
+  bid = params.fetch('bid')
+  gig = Gig.find(params.fetch('gid'))
+  gig.destroy()
+  redirect("/bands/#{bid}/edit")
+end
+
 #venues
 get('/venues') do
   @venues = Venue.all
@@ -52,5 +59,12 @@ post('/venues/:vid/gig/add') do
   band = Band.find(params.fetch('band_id'))
   gig_date = params.fetch("gig_date")
   band.gigs << Gig.new({:venue => venue, :gig_date => gig_date})
+  redirect("/venues/#{vid}/edit")
+end
+
+get('/venues/:vid/gig/:gid/delete') do
+  vid = params.fetch('vid')
+  gig = Gig.find(params.fetch('gid'))
+  gig.destroy()
   redirect("/venues/#{vid}/edit")
 end
