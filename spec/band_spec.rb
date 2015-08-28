@@ -13,6 +13,16 @@ describe (Band) do
 
   end
 
+  describe('tests validation for uniqueness ') do
+    it('creates a band and ensures no duplication') do
+      test_band1 = Band.create({:band_name => 'Aerosmith'})
+      test_band2 = Band.create({:band_name => 'Aerosmith'})
+      expect(Band.all).to(eq([test_band1]))
+
+    end
+
+  end
+
 
 
 end
