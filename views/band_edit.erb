@@ -14,7 +14,7 @@
 </tr>
 <% @band.gigs.each do |g| %>
 <tr>
-  <td><%= g.venue.venue_name %></td>
+  <td><a href="/venues/<%= g.venue_id %>/edit"><%= g.venue.venue_name %></a></td>
   <td><date><%= g.gig_date %></date></td>
     <td><a href="/bands/<%= @band.id %>/gig/<%= g.id %>/delete">Delete</a></td>
 </tr>
