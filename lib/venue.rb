@@ -1,7 +1,7 @@
 class Venue < ActiveRecord::Base
   has_many :bands, :through => :gigs
   has_many :gigs
-  validates :venue_name, uniqueness: true
+  validates :venue_name, presence: true, uniqueness: true
   before_save :capitalize
 
   private

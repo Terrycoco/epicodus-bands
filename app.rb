@@ -10,7 +10,12 @@ get('/') do
 end
 
 post('/bands/new') do
-  Band.create({:band_name => params.fetch("band_name")})
+  newname = params.fetch("band_name")
+  whereclause = "lower(band_name) = '" + newname.downcase + "'"
+  there = Band.where(whereclause)
+  if !there
+    Band.create({:band_name => params.fetch("band_name")})
+  end
   redirect('/')
 end
 
@@ -51,7 +56,14 @@ get('/venues') do
 end
 
 post('/venues/new') do
-  Venue.create({:venue_name => params.fetch("venue_name")})
+  newname = params.fetch("venue_name")
+  whereclause = "lower(venue_name) = '" + newname.downcase + "'"
+  there = Venue.where(whereclause)
+  if !there
+    Venue.create({:venue_name => newname})
+
+  end
+
   redirect('/venues')
 end
 
