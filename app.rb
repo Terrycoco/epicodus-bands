@@ -20,6 +20,14 @@ get('/bands/:bid/edit') do
   erb(:band_edit)
 end
 
+post('/bands/:bid/update') do
+  bid = params.fetch('bid')
+  band = Band.find(bid)
+  new_name = params.fetch('band_name')
+  band.update({:band_name => new_name})
+  redirect("/bands/#{bid}/edit")
+end
+
 post('/bands/:bid/gig/add') do
   bid = params.fetch('bid')
   band = Band.find(bid)

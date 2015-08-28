@@ -1,11 +1,12 @@
-<h3>Band Details</h3>
-<form class="" action="/bands<% @band.id %>/update" method="post">
-<label for="band_name">Band Name</label>
+
+<form action="/bands/<%= @band.id %>/update" method="post">
+<label class="form-label" for="band_name">Band Name</label>
 <input type="text" name="band_name" value="<%= @band.band_name %>">
-<button type="button" name="update">Save</button>
+<button type="submit" name="update">Save</button>
 </form>
 
-<h3>Upcoming Venues</h3>
+
+<h4>Upcoming Venues</h4>
 <table class="table table-striped table-bordered table-condensed">
 <tr>
   <th>Venue</th>
@@ -20,7 +21,7 @@
 <% end %>
 </table>
 
-<h3>Add a Gig</h3>
+<h4>Add a Gig</h4>
 <form class="" action="/bands/<%= @band.id %>/gig/add" method="post">
   <select name="venue_id">
     <% @venues.each do |v| %>
